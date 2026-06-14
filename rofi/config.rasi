@@ -1,0 +1,49 @@
+* {
+    background-color: #0d0f13;
+    text-color: #a8b0c0;
+    font: "JetBrainsMono Nerd Font 13";
+}
+window {
+    width: 450px;
+    border: 2px;
+    border-color: #39d353;
+    border-radius: 12px;
+    padding: 14px;
+}
+mainbox {
+    spacing: 8px;
+}
+inputbar {
+    border: 0px 0px 2px 0px;
+    border-color: #2e333d;
+    padding: 10px;
+}
+prompt {
+    text-color: #39d353;
+}
+entry {
+    text-color: #a8b0c0;
+}
+listview {
+    lines: 7;
+    spacing: 6px;
+}
+element {
+    padding: 8px 12px;
+    background-color: #0d0f13;
+    text-color: #a8b0c0;
+    border-radius: 8px;
+}
+element selected {
+    background-color: #0a1610;
+    text-color: #39d353;
+    border: 1px;
+    border-color: #39d353;
+}
+element-icon {
+    size: 24px;
+    margin: 0px 10px 0px 0px;
+}
+element-text {
+    text-color: inherit;
+}

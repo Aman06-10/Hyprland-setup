@@ -1,0 +1,13 @@
+window#waybar {
+background: rgba(0,0,0,0.75);
+color:#00ff99;
+border-radius:15px;
+font-family: "JetBrainsMono Nerd Font";
+font-size: 15px;
+}
+
+#workspaces button.active {
+background:#00ff99;
+color:black;
+border-radius:12px;
+}

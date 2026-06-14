@@ -1,0 +1,100 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+
+    "spacing": 6,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/player"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "network",
+        "pulseaudio",
+        "backlight",
+        "temperature",
+        "battery",
+        "tray"
+    ],
+
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "sort-by-number": true,
+
+        "persistent-workspaces": {
+            "*": 10
+        }
+    },
+
+
+    "custom/player": {
+        "exec": "playerctl metadata --format ' {{artist}} - {{title}}' 2>/dev/null || true",
+        "interval": 2,
+        "on-click": "playerctl play-pause",
+        "max-length": 40
+    },
+
+
+    "clock": {
+        "format": "  {:%Y-%m-%d %H:%M:%S}",
+        "interval": 1
+    },
+
+
+    "pulseaudio": {
+        "format": "  {volume}%",
+        "format-muted": " muted",
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+
+
+    "backlight": {
+        "format": "  {percent}%",
+        "scroll-step": 5
+    },
+
+
+    "temperature": {
+        "thermal-zone": 0,
+        "format": "  {temperatureC}°C",
+        "interval": 10
+    },
+
+
+    "network": {
+        "format-wifi": "  {essid} {signalStrength}%",
+        "format-ethernet": "󰈀  {ipaddr}",
+        "format-disconnected": " Offline",
+        "interval": 5
+    },
+
+
+    "battery": {
+    "bat": "BAT0",
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+    ],
+    "interval": 10
+},
+
+
+    "tray": {
+        "spacing": 8
+    }
+}
