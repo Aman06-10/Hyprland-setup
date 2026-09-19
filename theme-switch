@@ -1,0 +1,353 @@
+#!/bin/bash
+
+# =====================
+# THEME SWITCHER
+# =====================
+# Usage:
+# theme-switch [dawn|moonlit|webslinger|bat|racing|scout|dragon|crimson|poppy|meadow]
+# With no argument, themes cycle automatically.
+
+THEME=$1
+CURRENT_THEME_FILE="$HOME/.config/themes/current"
+
+mkdir -p "$HOME/.config/themes"
+mkdir -p "$HOME/.config/waybar"
+
+if [ -z "$THEME" ]; then
+    CURRENT=$(cat "$CURRENT_THEME_FILE" 2>/dev/null || echo "dawn")
+
+    case "$CURRENT" in
+        dawn) THEME="moonlit" ;;
+        moonlit) THEME="webslinger" ;;
+        webslinger) THEME="bat" ;;
+        bat) THEME="racing" ;;
+        racing) THEME="scout" ;;
+        scout) THEME="dragon" ;;
+        dragon) THEME="crimson" ;;
+        crimson) THEME="poppy" ;;
+        poppy) THEME="meadow" ;;
+        meadow) THEME="dawn" ;;
+        *) THEME="dawn" ;;
+    esac
+fi
+
+echo "Switching to: $THEME"
+
+if [ "$THEME" = "dawn" ]; then
+    WALLPAPER="$HOME/Pictures/wallpaper.jpg"
+    ACTIVE_BORDER="rgba(e8622aff)"
+    INACTIVE_BORDER="rgba(2e2218aa)"
+    WAYBAR_BG="rgba(18,16,14,0.85)"
+    WAYBAR_FG="#c9b99a"
+    WAYBAR_ACTIVE_WS_BG="#e8622a"
+    WAYBAR_ACTIVE_WS_FG="#12100e"
+    ROFI_BG="#12100e"
+    ROFI_FG="#c9b99a"
+    ROFI_ACCENT="#e8622a"
+    ROFI_BORDER="#2e2218"
+    ROFI_SEL_BG="#1e1612"
+    DUNST_FRAME="#e8622a"
+    DUNST_BG="#12100e"
+    DUNST_FG="#c9b99a"
+    DUNST_CRIT_FG="#e8622a"
+
+elif [ "$THEME" = "moonlit" ]; then
+    WALLPAPER="$HOME/Pictures/bluewallpaper.jpg"
+    ACTIVE_BORDER="rgba(5bc8e8ff)"
+    INACTIVE_BORDER="rgba(1a2a3aaa)"
+    WAYBAR_BG="rgba(10,14,26,0.85)"
+    WAYBAR_FG="#c0d4e8"
+    WAYBAR_ACTIVE_WS_BG="#5bc8e8"
+    WAYBAR_ACTIVE_WS_FG="#0a0e1a"
+    ROFI_BG="#0a0e1a"
+    ROFI_FG="#c0d4e8"
+    ROFI_ACCENT="#5bc8e8"
+    ROFI_BORDER="#1a2a3a"
+    ROFI_SEL_BG="#0f1e2e"
+    DUNST_FRAME="#5bc8e8"
+    DUNST_BG="#0a0e1a"
+    DUNST_FG="#c0d4e8"
+    DUNST_CRIT_FG="#5bc8e8"
+
+elif [ "$THEME" = "webslinger" ]; then
+    WALLPAPER="$HOME/Pictures/spidey.jpg"
+    ACTIVE_BORDER="rgba(e62429ff)"
+    INACTIVE_BORDER="rgba(101820aa)"
+    WAYBAR_BG="rgba(10,15,28,0.90)"
+    WAYBAR_FG="#f2f2f2"
+    WAYBAR_ACTIVE_WS_BG="#e62429"
+    WAYBAR_ACTIVE_WS_FG="#ffffff"
+    ROFI_BG="#0a0f1c"
+    ROFI_FG="#f2f2f2"
+    ROFI_ACCENT="#e62429"
+    ROFI_BORDER="#173a66"
+    ROFI_SEL_BG="#151d32"
+    DUNST_FRAME="#e62429"
+    DUNST_BG="#0a0f1c"
+    DUNST_FG="#f2f2f2"
+    DUNST_CRIT_FG="#e62429"
+
+elif [ "$THEME" = "bat" ]; then
+    WALLPAPER="$HOME/Pictures/bat.jpg"
+    ACTIVE_BORDER="rgba(f5c518ff)"
+    INACTIVE_BORDER="rgba(1a1a1aaa)"
+    WAYBAR_BG="rgba(5,5,5,0.92)"
+    WAYBAR_FG="#d9d9d9"
+    WAYBAR_ACTIVE_WS_BG="#f5c518"
+    WAYBAR_ACTIVE_WS_FG="#000000"
+    ROFI_BG="#050505"
+    ROFI_FG="#d9d9d9"
+    ROFI_ACCENT="#f5c518"
+    ROFI_BORDER="#303030"
+    ROFI_SEL_BG="#1a1a1a"
+    DUNST_FRAME="#f5c518"
+    DUNST_BG="#050505"
+    DUNST_FG="#d9d9d9"
+    DUNST_CRIT_FG="#f5c518"
+
+elif [ "$THEME" = "racing" ]; then
+    WALLPAPER="$HOME/Pictures/car.jpg"
+    ACTIVE_BORDER="rgba(ede3d0ff)"
+    INACTIVE_BORDER="rgba(191a1eaa)"
+    WAYBAR_BG="rgba(25,26,30,0.92)"
+    WAYBAR_FG="#ede3d0"
+    WAYBAR_ACTIVE_WS_BG="#ede3d0"
+    WAYBAR_ACTIVE_WS_FG="#191a1e"
+    ROFI_BG="#191a1e"
+    ROFI_FG="#ede3d0"
+    ROFI_ACCENT="#cfb09e"
+    ROFI_BORDER="#5f5f5e"
+    ROFI_SEL_BG="#2d2d31"
+    DUNST_FRAME="#cfb09e"
+    DUNST_BG="#191a1e"
+    DUNST_FG="#ede3d0"
+    DUNST_CRIT_FG="#d94a3d"
+
+elif [ "$THEME" = "scout" ]; then
+    WALLPAPER="$HOME/Pictures/levi.jpg"
+    ACTIVE_BORDER="rgba(6f7d45ff)"
+    INACTIVE_BORDER="rgba(182016aa)"
+    WAYBAR_BG="rgba(24,32,22,0.90)"
+    WAYBAR_FG="#f2e4d2"
+    WAYBAR_ACTIVE_WS_BG="#6f7d45"
+    WAYBAR_ACTIVE_WS_FG="#182016"
+    ROFI_BG="#182016"
+    ROFI_FG="#f2e4d2"
+    ROFI_ACCENT="#7f8d55"
+    ROFI_BORDER="#505c34"
+    ROFI_SEL_BG="#28321f"
+    DUNST_FRAME="#7f8d55"
+    DUNST_BG="#182016"
+    DUNST_FG="#f2e4d2"
+    DUNST_CRIT_FG="#a78f62"
+
+elif [ "$THEME" = "dragon" ]; then
+    WALLPAPER="$HOME/Pictures/purple.jpg"
+    ACTIVE_BORDER="rgba(8b63efff)"
+    INACTIVE_BORDER="rgba(202b66aa)"
+    WAYBAR_BG="rgba(24,29,70,0.90)"
+    WAYBAR_FG="#e0e1f8"
+    WAYBAR_ACTIVE_WS_BG="#8b63ef"
+    WAYBAR_ACTIVE_WS_FG="#151932"
+    ROFI_BG="#181d46"
+    ROFI_FG="#e0e1f8"
+    ROFI_ACCENT="#c14be8"
+    ROFI_BORDER="#5460d1"
+    ROFI_SEL_BG="#2c326e"
+    DUNST_FRAME="#c14be8"
+    DUNST_BG="#181d46"
+    DUNST_FG="#e0e1f8"
+    DUNST_CRIT_FG="#ff4edb"
+
+elif [ "$THEME" = "crimson" ]; then
+    WALLPAPER="$HOME/Pictures/red1.jpg"
+    ACTIVE_BORDER="rgba(e41d14ff)"
+    INACTIVE_BORDER="rgba(242322aa)"
+    WAYBAR_BG="rgba(22,20,20,0.94)"
+    WAYBAR_FG="#f0e8e6"
+    WAYBAR_ACTIVE_WS_BG="#e41d14"
+    WAYBAR_ACTIVE_WS_FG="#160b0a"
+    ROFI_BG="#181414"
+    ROFI_FG="#f0e8e6"
+    ROFI_ACCENT="#e41d14"
+    ROFI_BORDER="#5d2825"
+    ROFI_SEL_BG="#351817"
+    DUNST_FRAME="#e41d14"
+    DUNST_BG="#181414"
+    DUNST_FG="#f0e8e6"
+    DUNST_CRIT_FG="#ff3328"
+
+elif [ "$THEME" = "poppy" ]; then
+    WALLPAPER="$HOME/Pictures/red.jpg"
+    ACTIVE_BORDER="rgba(b47da8ff)"
+    INACTIVE_BORDER="rgba(1e2231aa)"
+    WAYBAR_BG="rgba(24,28,43,0.90)"
+    WAYBAR_FG="#f1d8d1"
+    WAYBAR_ACTIVE_WS_BG="#b47da8"
+    WAYBAR_ACTIVE_WS_FG="#1e2231"
+    ROFI_BG="#1e2231"
+    ROFI_FG="#f1d8d1"
+    ROFI_ACCENT="#b47da8"
+    ROFI_BORDER="#6b5e8b"
+    ROFI_SEL_BG="#302d42"
+    DUNST_FRAME="#b47da8"
+    DUNST_BG="#1e2231"
+    DUNST_FG="#f1d8d1"
+    DUNST_CRIT_FG="#e66f7d"
+
+elif [ "$THEME" = "meadow" ]; then
+    WALLPAPER="$HOME/Pictures/trio.jpg"
+    ACTIVE_BORDER="rgba(c7b978ff)"
+    INACTIVE_BORDER="rgba(22271caa)"
+    WAYBAR_BG="rgba(26,31,22,0.90)"
+    WAYBAR_FG="#e5dcc0"
+    WAYBAR_ACTIVE_WS_BG="#c7b978"
+    WAYBAR_ACTIVE_WS_FG="#22271c"
+    ROFI_BG="#22271c"
+    ROFI_FG="#e5dcc0"
+    ROFI_ACCENT="#b8aa63"
+    ROFI_BORDER="#5d5832"
+    ROFI_SEL_BG="#353924"
+    DUNST_FRAME="#b8aa63"
+    DUNST_BG="#22271c"
+    DUNST_FG="#e5dcc0"
+    DUNST_CRIT_FG="#d4bd67"
+
+else
+    echo "Unknown theme: $THEME"
+    exit 1
+fi
+
+if [ ! -f "$WALLPAPER" ]; then
+    echo "Wallpaper not found: $WALLPAPER"
+    exit 1
+fi
+
+# =====================
+# APPLY HYPRLAND
+# =====================
+sed -i "s/col.active_border = rgba([^)]*)/col.active_border = $ACTIVE_BORDER/" "$HOME/.config/hypr/hyprland.conf"
+sed -i "s/col.inactive_border = rgba([^)]*)/col.inactive_border = $INACTIVE_BORDER/" "$HOME/.config/hypr/hyprland.conf"
+
+# =====================
+# APPLY WAYBAR
+# =====================
+cat > "$HOME/.config/waybar/theme.css" << WAYBAR
+@define-color waybar_bg $WAYBAR_BG;
+@define-color waybar_fg $WAYBAR_FG;
+@define-color workspace_active_bg $WAYBAR_ACTIVE_WS_BG;
+@define-color workspace_active_fg $WAYBAR_ACTIVE_WS_FG;
+WAYBAR
+
+# =====================
+# APPLY ROFI
+# =====================
+cat > "$HOME/.config/rofi/config.rasi" << ROFI
+* {
+    background-color: $ROFI_BG;
+    text-color: $ROFI_FG;
+    font: "JetBrainsMono Nerd Font 13";
+}
+window {
+    width: 450px;
+    border: 2px;
+    border-color: $ROFI_ACCENT;
+    border-radius: 12px;
+    padding: 14px;
+}
+mainbox {
+    spacing: 8px;
+}
+inputbar {
+    border: 0px 0px 2px 0px;
+    border-color: $ROFI_BORDER;
+    padding: 10px;
+}
+prompt {
+    text-color: $ROFI_ACCENT;
+}
+entry {
+    text-color: $ROFI_FG;
+}
+listview {
+    lines: 7;
+    spacing: 6px;
+}
+element {
+    padding: 8px 12px;
+    background-color: $ROFI_BG;
+    text-color: $ROFI_FG;
+    border-radius: 8px;
+}
+element selected {
+    background-color: $ROFI_SEL_BG;
+    text-color: $ROFI_ACCENT;
+    border: 1px;
+    border-color: $ROFI_ACCENT;
+}
+element-icon {
+    size: 24px;
+    margin: 0px 10px 0px 0px;
+}
+element-text {
+    text-color: inherit;
+}
+ROFI
+
+# =====================
+# APPLY DUNST
+# =====================
+sed -i "s/frame_color = \"#[^\"]*\"/frame_color = \"$DUNST_FRAME\"/" "$HOME/.config/dunst/dunstrc"
+sed -i "/\[urgency_low\]/,/timeout/ s/background = \"#[^\"]*\"/background = \"$DUNST_BG\"/" "$HOME/.config/dunst/dunstrc"
+sed -i "/\[urgency_low\]/,/timeout/ s/foreground = \"#[^\"]*\"/foreground = \"$DUNST_FG\"/" "$HOME/.config/dunst/dunstrc"
+sed -i "/\[urgency_normal\]/,/timeout/ s/background = \"#[^\"]*\"/background = \"$DUNST_BG\"/" "$HOME/.config/dunst/dunstrc"
+sed -i "/\[urgency_normal\]/,/timeout/ s/foreground = \"#[^\"]*\"/foreground = \"$DUNST_FG\"/" "$HOME/.config/dunst/dunstrc"
+sed -i "/\[urgency_critical\]/,/timeout/ s/foreground = \"#[^\"]*\"/foreground = \"$DUNST_CRIT_FG\"/" "$HOME/.config/dunst/dunstrc"
+sed -i "/\[urgency_critical\]/,/timeout/ s/background = \"#[^\"]*\"/background = \"$DUNST_BG\"/" "$HOME/.config/dunst/dunstrc"
+
+# =====================
+# SET WALLPAPER
+# =====================
+swww img "$WALLPAPER" --transition-type wipe --transition-fps 60
+
+# =====================
+# KITTY COLORS
+# =====================
+wallust run "$WALLPAPER"
+
+sleep 0.2
+
+for socket in /tmp/mykitty-*; do
+    [ -S "$socket" ] || continue
+
+    kitten @ \
+        --to "unix:$socket" \
+        set-colors \
+        --all \
+        --configured \
+        "$HOME/.config/kitty/colors.conf" \
+        >/dev/null 2>&1
+done
+
+# Update all open Kitty windows even when launched from Hyprland.
+sleep 0.15
+if command -v kitten >/dev/null 2>&1; then
+    kitten @ --to unix:@mykitty set-colors --all --configured "$HOME/.config/kitty/colors.conf" >/dev/null 2>&1 || true
+elif command -v kitty >/dev/null 2>&1; then
+    kitty @ --to unix:@mykitty set-colors --all --configured "$HOME/.config/kitty/colors.conf" >/dev/null 2>&1 || true
+fi
+
+# Fallback config reload.
+pkill -USR1 kitty 2>/dev/null || true
+
+# =====================
+# RELOAD EVERYTHING
+# =====================
+hyprctl reload
+killall -SIGUSR2 waybar 2>/dev/null || true
+killall dunst 2>/dev/null || true
+dunst >/dev/null 2>&1 &
+
+echo "$THEME" > "$CURRENT_THEME_FILE"
+notify-send "Theme Switched" "Now using: $THEME"
+echo "Done! Theme: $THEME
